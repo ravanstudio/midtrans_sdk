@@ -9,24 +9,25 @@ part of 'transaction_result.dart';
 TransactionResult _$TransactionResultFromJson(Map<String, dynamic> json) {
   return TransactionResult(
     isTransactionCanceled: json['isTransactionCanceled'] as bool,
-    transactionStatus: _$enumDecodeNullable(
-        _$TransactionResultStatusEnumMap, json['transactionStatus']),
+    transactionStatus: _$enumDecodeNullable(_$TransactionResultStatusEnumMap, json['transactionStatus']),
     statusMessage: json['statusMessage'] as String?,
     transactionId: json['transactionId'] as String?,
     orderId: json['orderId'] as String?,
     paymentType: json['paymentType'] as String?,
+    deeplinkUrl: json['deeplinkUrl'] as String?,
+    transactionTime: json['transactionTime'] as String?,
   );
 }
 
-Map<String, dynamic> _$TransactionResultToJson(TransactionResult instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$TransactionResultToJson(TransactionResult instance) => <String, dynamic>{
       'isTransactionCanceled': instance.isTransactionCanceled,
-      'transactionStatus':
-          _$TransactionResultStatusEnumMap[instance.transactionStatus],
+      'transactionStatus': _$TransactionResultStatusEnumMap[instance.transactionStatus],
       'statusMessage': instance.statusMessage,
       'transactionId': instance.transactionId,
       'orderId': instance.orderId,
       'paymentType': instance.paymentType,
+      'deeplinkUrl': instance.deeplinkUrl,
+      'transactionTime': instance.transactionTime,
     };
 
 K _$enumDecode<K, V>(

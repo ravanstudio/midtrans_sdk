@@ -10,18 +10,12 @@ class TransactionResult {
   final String? transactionId;
   final String? orderId;
   final String? paymentType;
+  final String? deeplinkUrl;
+  final String? transactionTime;
 
-  TransactionResult({
-    this.isTransactionCanceled = true,
-    this.transactionStatus,
-    this.statusMessage,
-    this.transactionId,
-    this.orderId,
-    this.paymentType,
-  });
+  TransactionResult({this.isTransactionCanceled = true, this.transactionStatus, this.statusMessage, this.transactionId, this.orderId, this.paymentType, this.deeplinkUrl, this.transactionTime});
 
-  factory TransactionResult.fromJson(Map<String, dynamic> json) =>
-      _$TransactionResultFromJson(json);
+  factory TransactionResult.fromJson(Map<String, dynamic> json) => _$TransactionResultFromJson(json);
   Map<String, dynamic> toJson() => _$TransactionResultToJson(this);
 }
 

@@ -18,18 +18,12 @@ class MidtransSDK {
   }
 
   Future _channelHandler(MethodCall call) async {
-    switch (call.method) {
-      case "onTransactionFinished":
-        try {
-          Map<String, dynamic> map =
-              new Map<String, dynamic>.from(call.arguments);
-          print(map);
-          var result = TransactionResult.fromJson(map);
-          _transactionFinishedCallback?.call(result);
-        } catch (e) {
-          print(e);
-        }
-        break;
+    try {
+      Map<String, dynamic> map = new Map<String, dynamic>.from(call.arguments);
+      var result = TransactionResult.fromJson(map);
+      _transactionFinishedCallback?.call(result);
+    } catch (e) {
+      print("Err $e");
     }
   }
 

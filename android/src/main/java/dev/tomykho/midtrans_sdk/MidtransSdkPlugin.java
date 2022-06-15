@@ -105,6 +105,8 @@ public class MidtransSdkPlugin implements FlutterPlugin, MethodCallHandler, Acti
                   arguments.put("transactionId", response.getTransactionId());
                   arguments.put("orderId", response.getOrderId());
                   arguments.put("paymentType", response.getPaymentType());
+                  arguments.put("deeplinkUrl", response.getDeeplinkUrl());                  
+                  arguments.put("transactionTime", response.getTransactionTime());                  
                 }
                 channel.invokeMethod("onTransactionFinished", arguments);
               }

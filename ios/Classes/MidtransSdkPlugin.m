@@ -5,14 +5,14 @@
 @end
 
 @implementation MidtransSdkPlugin
-FlutterMethodChannel* channel;
+FlutterMethodChannel* channelmid;
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  channel = [FlutterMethodChannel
+  channelmid = [FlutterMethodChannel
       methodChannelWithName:@"midtrans_sdk"
             binaryMessenger:[registrar messenger]];
   MidtransSdkPlugin* instance = [[MidtransSdkPlugin alloc] init];
-  [registrar addMethodCallDelegate:instance channel:channel];
+  [registrar addMethodCallDelegate:instance channel:channelmid];
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
@@ -72,8 +72,10 @@ FlutterMethodChannel* channel;
         arguments[@"transactionId"] = result.transactionId;
         arguments[@"orderId"] = result.orderId;
         arguments[@"paymentType"] = result.paymentType;
+        arguments[@"deeplinkUrl"] = result.deeplinkUrl;
+        arguments[@"transactionTime"] = result.transactionTime;
     }
-    [channel invokeMethod:@"onTransactionFinished" arguments:arguments];
+    [channelmid invokeMethod:@"onTransactionFinished" arguments:arguments];
 }
 
 #pragma mark - MidtransUIPaymentViewControllerDelegate
