@@ -20,7 +20,8 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.platform = :ios, '8.0'
-  s.ios.dependency 'MidtransKit', '1.20.1'
+  #s.ios.dependency 'MidtransKit', '1.20.1'
+  s.ios.dependency 'git', 'https://github.com/ravanstudio/Veritrans-ios-sdk'
   s.static_framework = true
 
   # Flutter.framework does not contain a i386 slice.
